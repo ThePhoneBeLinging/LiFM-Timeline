@@ -17,6 +17,8 @@ public:
   void callUpdates();
   void registerUpdate(const std::chrono::system_clock::time_point& timePoint, const std::function<void()>& update);
   [[nodiscard]] tm getTimeObject() const;
+  [[nodiscard]] std::string getDateString() const;
+  [[nodiscard]] std::string getClockString() const;
 private:
   std::chrono::time_point<std::chrono::system_clock> currentTimePoint_;
   std::vector<std::unique_ptr<TimebasedCallback>> updateFunctions_;

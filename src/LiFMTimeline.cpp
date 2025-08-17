@@ -39,5 +39,23 @@ void LiFMTimeline::registerUpdate(const std::chrono::system_clock::time_point& t
 
 tm LiFMTimeline::getTimeObject() const
 {
-  return TimeUtil::timeToTM(currentTimePoint_);
+  auto timeObject = TimeUtil::timeToTM(currentTimePoint_);
+  return timeObject;
+}
+
+std::string LiFMTimeline::getDateString() const
+{
+  auto time = getTimeObject();
+  time.tm_year -= 1900;
+  std::stringstream ss;
+  ss << std::put_time(&time, "%d/%m-%Y");
+  return ss.str();
+}
+
+std::string LiFMTimeline::getClockString() const
+{
+  auto time = getTimeObject();
+  std::stringstream ss;
+  ss << std::put_time(&time, "%H:%M:%S");
+  return ss.str();
 }
