@@ -18,11 +18,11 @@ void LiFMTimeline::advance()
 
 void LiFMTimeline::callUpdates()
 {
-  for (int i = 0; i < updateFunctions_.size(); ++i)
+  for (const auto & updateFunction : updateFunctions_)
   {
-    if (updateFunctions_[i]->timePoint_ >= currentTimePoint_)
+    if (updateFunction->timePoint_ >= currentTimePoint_)
     {
-      updateFunctions_[i]->callCallback();
+      updateFunction->callCallback();
     }
   }
   std::erase_if(updateFunctions_,[](const std::unique_ptr<TimebasedCallback>& a)
