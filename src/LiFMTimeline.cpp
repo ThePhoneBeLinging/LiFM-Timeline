@@ -20,7 +20,7 @@ void LiFMTimeline::callUpdates()
 {
   for (int i = 0; i < updateFunctions_.size(); ++i)
   {
-    if (updateFunctions_[i]->timePoint_ > currentTimePoint_)
+    if (updateFunctions_[i]->timePoint_ >= currentTimePoint_)
     {
       updateFunctions_[i]->callCallback();
     }
