@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 23)
 
 add_library(LiFM_Timeline
         LiFMTimeline.cpp
+        TimebasedCallback.hpp
 )
 
 target_link_libraries(LiFM_Timeline PUBLIC Utility)

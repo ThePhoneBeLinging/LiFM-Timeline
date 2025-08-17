@@ -23,4 +23,4 @@ add_subdirectory(src)
 add_subdirectory(test)
 
 target_include_directories(LiFM_Timeline PUBLIC include)
-target_include_directories(LiFM_Timeline PRIVATE src)
+target_include_directories(LiFM_Timeline PUBLIC src)
